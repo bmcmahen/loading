@@ -10,7 +10,8 @@ module.exports = loading;
 
 
 /**
- * Add a loading class to an element, and return a function that will remove it.
+ * Allow multiple states, like success, failure, or finish
+ * states.
  *
  * @param {Element} el
  * @return {Function}
@@ -18,7 +19,15 @@ module.exports = loading;
 
 function loading (el) {
   classes(el).add('loading');
-  return function () {
-    classes(el).remove('loading');
-  };
+  return {
+  	success: function(){
+  		classes(el).add('loading-success');
+  	},
+  	failure: function(){
+  		classes(el).add('loading-failure');
+  	},
+  	finish: function(){
+  		classes(el).remove('loading');
+  	}
+  }
 }
