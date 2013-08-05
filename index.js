@@ -28,6 +28,12 @@ function loading (el) {
   	},
   	finish: function(){
   		classes(el).remove('loading');
+  	},
+  	reset: function(){
+  		classes(el)
+  			.remove('loading')
+  			.remove('loading-failure')
+  			.remove('loading-success');
   	}
   }
 }
